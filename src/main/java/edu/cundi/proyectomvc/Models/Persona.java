@@ -26,9 +26,13 @@ public class Persona {
         this.nombre = nombre;
     }
 
+    /**
+     * 
+     * @return imprime el objeto.
+     */
     @Override
     public String toString() {
-        return  "" + nombre;
+        return nombre;
     }
     
 }

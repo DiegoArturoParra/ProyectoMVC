@@ -8,6 +8,7 @@ import javax.swing.DefaultListModel;
  *
  * @author diego parra
  * @version 1.0.0
+ * Clase que corre el programa instanciando el controlador con sus parametros que al igual son instancias de una clase.
  */
 public class Main {
     public static void main(String[] args) {

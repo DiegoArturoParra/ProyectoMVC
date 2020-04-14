@@ -9,27 +9,52 @@ import javax.swing.*;
  */
 public class ViewPersona extends JFrame {
 
+    /**
+     * label que muestra un texto en el formulario.
+     */
     private final JLabel labelNombre = new JLabel("Nombre");
+    /**
+     * caja de texto donde se digita el nombre.
+     */
     public final JTextField inputNombre = new JTextField(20);
+    /**
+     * boton para insertar dentro del jlist.
+     */
     public JButton btnInsertar;
+    /**
+     * scroll para desplazar el jlist.
+     */
     private JScrollPane scroll;
+    /**
+     * jlist imprime lo que se inserta a partir de un DefaultListModel
+     */
     public JList listaPersona;
-    public JPanel panel;
+    /**
+     * panel para dar diseño al formulario.
+     */
+    private JPanel panel;
+    /**
+     * Contenedor.
+     */
+    private Container contenedor;
+    private GridBagLayout gridBag;
 
     public ViewPersona() throws HeadlessException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 300);
-        //--- PANEL
+        contenedor = getContentPane();
+//--- PANEL
         panel = new JPanel();
-        panel.setLayout(new GridBagLayout());
-        add(panel, BorderLayout.CENTER);
-
+        scroll = new JScrollPane(this.panel);
+        gridBag = new GridBagLayout();
+        contenedor.setLayout(gridBag);
         btnInsertar = new JButton("Insertar");
         btnInsertar.setPreferredSize(new Dimension(130, 30));
         listaPersona = new JList<>();
         listaPersona.setPreferredSize(new Dimension(200, 200));
-        scroll = new JScrollPane();
-        scroll.setViewportView(this.listaPersona);
+
+        
+        
         /**
          * graficos por grillas row y Column
          */
@@ -39,25 +64,28 @@ public class ViewPersona extends JFrame {
         c.weighty = 1;
 
         c.gridx = 0;
-        c.gridy = 0;
-        panel.add(labelNombre, c);
-
+        c.gridy = 0; 
+        
+        
+        
+        gridBag.setConstraints(scroll, c);
+        contenedor.setLayout(new BorderLayout());
+        contenedor.add(scroll);
         c.gridx = 1;
         c.gridy = 0;
+        
+        
+        gridBag.setConstraints(labelNombre, c);
+
         panel.add(inputNombre, c);
 
         c.gridx = 2;
         c.gridy = 0;
         panel.add(btnInsertar, c);
-        GridBagConstraints p = new GridBagConstraints();
-        p.gridwidth = 1;
-        p.weightx = 1;
-        p.weighty = 1;
 
-        p.gridx = 1;
-        p.gridy = 1;
-        panel.add(listaPersona, p);
-        panel.add(scroll,p);
+        c.gridx = 1;
+        c.gridy = 1;
+        panel.add(listaPersona, c);
+
     }
-
 }
