@@ -69,7 +69,7 @@ public class ViewPersona extends JFrame {
        
         c.gridx = 1;
         c.gridy = 1;
-        panel.add(listaPersona, c);
+        panel.add(scroll, c);
     }
 
 }
