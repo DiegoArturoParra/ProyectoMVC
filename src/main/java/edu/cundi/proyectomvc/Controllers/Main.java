@@ -12,7 +12,7 @@ import javax.swing.DefaultListModel;
 public class Main {
     public static void main(String[] args) {
              
-        DefaultListModel <Persona> modelo = new DefaultListModel<>();
+        DefaultListModel<Persona> modelo = new DefaultListModel();
         ViewPersona vista = new ViewPersona();
         PersonaController controlador = new PersonaController(modelo,vista);
         controlador.iniciarVentana();

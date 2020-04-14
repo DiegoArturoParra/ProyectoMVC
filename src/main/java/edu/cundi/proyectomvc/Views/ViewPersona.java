@@ -13,7 +13,7 @@ public class ViewPersona extends JFrame {
     public final JTextField inputNombre = new JTextField(20);
     public JButton btnInsertar;
     private JScrollPane scroll;
-    public JList<String> listaPersona;
+    public JList listaPersona;
     public JPanel panel;
 
     public ViewPersona() throws HeadlessException {
@@ -28,8 +28,8 @@ public class ViewPersona extends JFrame {
         btnInsertar.setPreferredSize(new Dimension(130, 30));
         listaPersona = new JList<>();
         listaPersona.setPreferredSize(new Dimension(200, 200));
-        scroll = new JScrollPane(this.listaPersona);
-
+        scroll = new JScrollPane();
+        scroll.setViewportView(this.listaPersona);
         /**
          * graficos por grillas row y Column
          */
@@ -57,7 +57,7 @@ public class ViewPersona extends JFrame {
         p.gridx = 1;
         p.gridy = 1;
         panel.add(listaPersona, p);
-        panel.add(scroll);
+        panel.add(scroll,p);
     }
 
 }

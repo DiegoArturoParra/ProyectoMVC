@@ -11,12 +11,13 @@ import javax.swing.DefaultListModel;
  */
 public class PersonaController implements ActionListener {
 
-    private DefaultListModel <Persona> modelo;
+    private DefaultListModel<Persona> modelo;
     private ViewPersona vista;
 
     public PersonaController(DefaultListModel<Persona> modelo, ViewPersona vista) {
         this.modelo = modelo;
         this.vista = vista;
+        this.vista.btnInsertar.addActionListener(this);
     }
 
     public void iniciarVentana() {
@@ -34,6 +35,7 @@ public class PersonaController implements ActionListener {
     }
     
     private void agregarDatos(String nombre){
-        
+        modelo.addElement(new Persona(nombre));
+        vista.listaPersona.setModel(modelo);
     }
 }
