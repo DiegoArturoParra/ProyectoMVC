@@ -1,0 +1,4 @@
+edu\cundi\proyectomvc\Controllers\PersonaController.class
+edu\cundi\proyectomvc\Controllers\Main.class
+edu\cundi\proyectomvc\Models\Persona.class
+edu\cundi\proyectomvc\Views\ViewPersona.class
